@@ -1,0 +1,23 @@
+{
+  "name": "ValueMap",
+  "version": "1.0.0",
+  "description": "A map that allows custom hash and equality functions for keys",
+  "main": "ValueMap.js",
+  "scripts": {
+    "build": "tsc ValueMap.ts",
+    "test": "tsc test.ts; node test"
+  },
+  "devDependencies": {
+    "typescript": "^2.0.10",
+    "@types/es6-shim": "^0.31.32"
+  },
+  "keywords": [
+    "map",
+    "value",
+    "custom",
+    "hash",
+    "equality"
+  ],
+  "author": "mako yass",
+  "license": "MIT"
+}
