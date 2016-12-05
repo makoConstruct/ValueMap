@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "preserveConstEnums": true,
+        "target": "ES5",
+        "sourceMap": true,
+        "module": "commonjs",
+        "pretty": true
+    },
+    "files": [ "ValueMap.ts" ]
+}

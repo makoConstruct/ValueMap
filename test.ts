@@ -43,9 +43,37 @@ vm.set(new MoAddress(1, "makoconstruct/edmo"), "blue")
 vm.set(new MoAddress(0, "makoconstruct/edmo"), "green")
 vm.set(new MoAddress(0, "neauoire/edmo"), "orange")
 
-assertEq(vm.length, 3)
+assertEq(vm.size, 3)
 
 assertEq(vm.get(new MoAddress(0, "makoconstruct/edmo")), "green")
+
+
+
+
+
+
+
+
+
+
+//testing StringifyingMap, which was only here for a perf test, so if you just want ValueMap you can ignore this
+import StringifyingMap from './StringifyingMap'
+
+function catToString(v:MoAddress):string { return v.id+'::'+v.module }
+
+//test basic
+var sm = new StringifyingMap<MoAddress, string>(catToString)
+
+sm.set(new MoAddress(0, "makoconstruct/edmo"), "red")
+sm.set(new MoAddress(1, "makoconstruct/edmo"), "blue")
+sm.set(new MoAddress(0, "makoconstruct/edmo"), "green")
+sm.set(new MoAddress(0, "neauoire/edmo"), "orange")
+
+assertEq(sm.size, 3)
+
+assertEq(sm.get(new MoAddress(0, "makoconstruct/edmo")), "green")
+
+
 
 
 console.log('all tests passed')

@@ -6,7 +6,7 @@ function swapRemoveArrayItemAt(ar:any[], i:number){ //a constant time array remo
 
 export default class ValueMap<K, V>{
 	m = new Map<number, {k:K, v:V}[]>();
-	length:number = 0;
+	size:number = 0;
 	constructor(private hash:(k:K)=>number, private trueEqual:(a:K,b:K)=>boolean){}
 	set(k:K, v:V):V { //returns the old v for that k
 		var kh = this.hash(k)
@@ -23,11 +23,11 @@ export default class ValueMap<K, V>{
 				++i
 			}while(i < bucket.length)
 			bucket.push({k,v})
-			this.length += 1
+			this.size += 1
 			return undefined
 		}else{
 			this.m.set(kh, [{k,v}])
-			this.length += 1
+			this.size += 1
 			return undefined
 		}
 	}
@@ -57,7 +57,7 @@ export default class ValueMap<K, V>{
 				var bi = bucket[i]
 				if(this.trueEqual(k, bi.k)){
 					swapRemoveArrayItemAt(bucket, i)
-					this.length -= 1
+					this.size -= 1
 					return bi.v
 				}
 				++i

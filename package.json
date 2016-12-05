@@ -4,8 +4,8 @@
   "description": "A map that allows custom hash and equality functions for keys",
   "main": "ValueMap.js",
   "scripts": {
-    "build": "tsc ValueMap.ts",
-    "test": "tsc test.ts; node test"
+    "build": "tsc --project tsconfig.json ValueMap.ts",
+    "test": "tsc --project testconfig.json && node test --verbose"
   },
   "devDependencies": {
     "typescript": "^2.0.10",
